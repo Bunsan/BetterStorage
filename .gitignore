@@ -10,6 +10,9 @@
 /.project
 /gradlew
 /gradlew.bat
+/BetterStorage.imi
+/BetterStorage.ipr
+/BetterStorage.iws
 
 # Project related files
 # Currently not included
