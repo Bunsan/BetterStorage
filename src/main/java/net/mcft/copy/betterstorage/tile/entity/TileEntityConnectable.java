@@ -1,5 +1,7 @@
 package net.mcft.copy.betterstorage.tile.entity;
 
+import com.bioxx.tfc.Core.TFC_Core;
+
 import net.mcft.copy.betterstorage.BetterStorage;
 import net.mcft.copy.betterstorage.config.GlobalConfig;
 import net.mcft.copy.betterstorage.inventory.InventoryTileEntity;
@@ -152,6 +154,7 @@ public abstract class TileEntityConnectable extends TileEntityContainer implemen
 	@Override
 	public void updateEntity() {
 		super.updateEntity();
+		TFC_Core.handleItemTicking(this, this.worldObj, xCoord, yCoord, zCoord);
 		
 		double x = xCoord + 0.5;
 		double y = yCoord + 0.5;
