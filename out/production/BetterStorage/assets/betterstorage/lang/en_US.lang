@@ -62,20 +62,6 @@ material.betterstorage.tin=Tin
 material.betterstorage.silver=Silver
 material.betterstorage.steel=Steel
 material.betterstorage.zinc=Zinc
-material.betterstorage.bismuth=Bismuth
-material.betterstorage.bismuthbronze=Bismuth Bronze
-material.betterstorage.blackbronze=Black Bronze
-material.betterstorage.blacksteel=Black Steel
-material.betterstorage.bluesteel=Blue Steel
-material.betterstorage.brass=Brass
-material.betterstorage.bronze=Bronze
-material.betterstorage.lead=Lead
-material.betterstorage.nickel=Nickel
-material.betterstorage.pigiron=Pig Iron
-material.betterstorage.redsteel=Red Steel
-material.betterstorage.rosegold=Rose Gold
-material.betterstorage.platinum=Platinum
-material.betterstorage.sterlingsilver=Sterling Silver
 
 # Thaumcraft
 tc.research_name.betterstorage.magicstorage=Magical Storage
