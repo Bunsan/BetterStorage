@@ -16,6 +16,8 @@ import codechicken.nei.api.API;
 import codechicken.nei.recipe.DefaultOverlayHandler;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.registry.GameRegistry;
+import com.bioxx.tfc.api.TFCItems;
+
 
 public class NEIAddon extends Addon {
 	
@@ -47,12 +49,12 @@ public class NEIAddon extends Addon {
 			GameRegistry.addRecipe(new FakeShapedRecipe(new ItemStack(BetterStorageItems.key),
 					".o",
 					".o",
-					" o", 'o', Items.gold_ingot,
+					" o", 'o', TFCItems.goldIngot,
 					      '.', Items.gold_nugget));
 			GameRegistry.addRecipe(new FakeShapedRecipe(new ItemStack(BetterStorageItems.key),
 					".o ",
 					".o ",
-					" ok", 'o', Items.gold_ingot,
+					" ok", 'o', TFCItems.goldIngot,
 					       '.', Items.gold_nugget,
 					       'k', BetterStorageItems.key));
 		}

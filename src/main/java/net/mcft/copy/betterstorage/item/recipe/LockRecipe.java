@@ -7,6 +7,8 @@ import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraftforge.oredict.OreDictionary;
+import com.bioxx.tfc.api.TFCItems;
+
 
 public class LockRecipe extends ShapedRecipes {
 	
@@ -23,8 +25,8 @@ public class LockRecipe extends ShapedRecipes {
 	}
 	
 	public static LockRecipe createLockRecipe() {
-		ItemStack gold = new ItemStack(Items.gold_ingot);
-		ItemStack iron = new ItemStack(Items.iron_ingot);
+		ItemStack gold = new ItemStack(TFCItems.goldIngot);
+		ItemStack iron = new ItemStack(TFCItems.wroughtIronIngot);
 		ItemStack key = new ItemStack(BetterStorageItems.key, 1, OreDictionary.WILDCARD_VALUE);
 		ItemStack lock = new ItemStack(BetterStorageItems.lock);
 		ItemStack[] items = new ItemStack[]{

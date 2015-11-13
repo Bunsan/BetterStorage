@@ -22,6 +22,8 @@ import net.minecraftforge.oredict.RecipeSorter;
 import net.minecraftforge.oredict.RecipeSorter.Category;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
+import com.bioxx.tfc.api.TFCItems;
+
 
 public final class Recipes {
 	
@@ -156,7 +158,7 @@ public final class Recipes {
 			GameRegistry.addRecipe(KeyRecipe.createKeyRecipe(
 					".o",
 					".o",
-					" o", 'o', Items.gold_ingot,
+					" o", 'o', TFCItems.goldIngot,
 					      '.', Items.gold_nugget));
 			// Key modify recipe
 			GameRegistry.addRecipe(KeyRecipe.createKeyRecipe(
