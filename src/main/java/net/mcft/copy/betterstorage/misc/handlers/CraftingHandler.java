@@ -8,6 +8,8 @@ import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent.ItemCraftedEvent;
+import com.bioxx.tfc.api.TFCItems;
+
 
 /** Handles key and lock crafting. */
 public class CraftingHandler {
@@ -23,7 +25,7 @@ public class CraftingHandler {
 		if (event.crafting.getItem() instanceof ItemKey) {
 			
 			// See if a key was modified by checking if no gold was used in the recipe.
-			boolean modifyKey = !InventoryUtils.hasItem(event.craftMatrix, Items.gold_ingot);
+			boolean modifyKey = !InventoryUtils.hasItem(event.craftMatrix, TFCItems.goldIngot);
 			
 			// If it is, remove it from the crafting matrix.
 			if (modifyKey) {
