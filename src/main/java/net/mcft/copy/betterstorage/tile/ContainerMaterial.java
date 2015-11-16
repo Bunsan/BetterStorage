@@ -85,23 +85,25 @@ public class ContainerMaterial {
 	public ShapedOreRecipe getReinforcedChestRecipe(String middle, Block result) {
 		if (nugget == null) return null;
 		return new ShapedOreRecipe(setMaterial(new ItemStack(result)),
-				"o#o",
+				"oOo",
 				"#C#",
-				"oOo", 'C', middle,
+				"oSo", 'o', nugget,
+				       'O', "plateSteel",
+				       'C', middle,
 				       '#', "logWood",
-				       'o', nugget,
-				       'O', "plateSteel");
+				       'S', "craftingToolHardSaw");
 	}
 
 	public ShapedOreRecipe getReinforcedLockerRecipe(Block middle, Block result) {
 		if (nugget == null) return null;
 		return new ShapedOreRecipe(setMaterial(new ItemStack(result)),
-				"o#o",
+				"oOo",
 				"#C#",
-				"oOo", 'C', middle,
+				"oSo", 'o', nugget,
+				'O', "plateSteel",
+				'C', middle,
 				'#', "logWood",
-				'o', nugget,
-				'O', "plateSteel");
+				'S', "craftingToolHardSaw");
 	}
 
 	public ResourceLocation getChestResource(boolean large) {
