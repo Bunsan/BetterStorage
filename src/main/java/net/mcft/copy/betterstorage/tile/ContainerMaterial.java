@@ -23,31 +23,31 @@ public class ContainerMaterial {
 	private static List<ContainerMaterial> materials = new ArrayList<ContainerMaterial>();
 	
 	// Vanilla materials
-	public static ContainerMaterial iron    = new ContainerMaterial(0, "iron",    "plateIron");
-	public static ContainerMaterial gold    = new ContainerMaterial(1, "gold",    "plateGold");
+	public static ContainerMaterial iron    = new ContainerMaterial(0, "iron",    "nuggetIron");
+	public static ContainerMaterial gold    = new ContainerMaterial(1, "gold",    "nuggetGold");
 	public static ContainerMaterial diamond = new ContainerMaterial(2, "diamond", "gemDiamond");
 	public static ContainerMaterial emerald = new ContainerMaterial(3, "emerald", "gemEmerald");
 	
 	// Mod materials
-	public static ContainerMaterial copper = new ContainerMaterial(5, "copper", "plateCopper");
-	public static ContainerMaterial tin    = new ContainerMaterial(6, "tin",    "plateTin");
-	public static ContainerMaterial silver = new ContainerMaterial(7, "silver", "plateSilver");
-	public static ContainerMaterial zinc   = new ContainerMaterial(8, "zinc",   "plateZinc");
-	public static ContainerMaterial steel  = new ContainerMaterial(   "steel",  "plateSteel");
-	public static ContainerMaterial bismuth  = new ContainerMaterial(   "bismuth",  "plateBismuth");
-	public static ContainerMaterial bismuthbronze  = new ContainerMaterial(   "bismuthbronze",  "plateBismuthBronze");
-	public static ContainerMaterial blackbronze  = new ContainerMaterial(   "blackbronze",  "plateBlackBronze");
-	public static ContainerMaterial blacksteel  = new ContainerMaterial(   "blacksteel",  "plateBlackSteel");
-	public static ContainerMaterial bluesteel  = new ContainerMaterial(   "bluesteel",  "plateBlueSteel");
-	public static ContainerMaterial brass  = new ContainerMaterial(   "brass",  "plateBrass");
-	public static ContainerMaterial bronze  = new ContainerMaterial(   "bronze",  "plateBronze");
-	public static ContainerMaterial lead  = new ContainerMaterial(   "lead",  "plateLead");
-	public static ContainerMaterial nickel  = new ContainerMaterial(   "nickel",  "plateNickel");
-	public static ContainerMaterial pigiron  = new ContainerMaterial(   "pigiron",  "platePigIron");
-	public static ContainerMaterial redsteel  = new ContainerMaterial(   "redsteel",  "plateRedSteel");
-	public static ContainerMaterial rosegold  = new ContainerMaterial(   "rosegold",  "plateRoseGold");
-	public static ContainerMaterial platinum  = new ContainerMaterial(   "platinum",  "platePlatinum");
-	public static ContainerMaterial sterlingsilver  = new ContainerMaterial(   "sterlingsilver",  "plateSterlingSilver");
+	public static ContainerMaterial copper = new ContainerMaterial(5, "copper", "nuggetCopper");
+	public static ContainerMaterial tin    = new ContainerMaterial(6, "tin",    "nuggetTin");
+	public static ContainerMaterial silver = new ContainerMaterial(7, "silver", "nuggetSilver");
+	public static ContainerMaterial zinc   = new ContainerMaterial(8, "zinc",   "nuggetZinc");
+	public static ContainerMaterial steel  = new ContainerMaterial(   "steel",  "nuggetSteel");
+	public static ContainerMaterial bismuth  = new ContainerMaterial(   "bismuth",  "nuggetBismuth");
+	public static ContainerMaterial bismuthbronze  = new ContainerMaterial(   "bismuthbronze",  "nuggetBismuthBronze");
+	public static ContainerMaterial blackbronze  = new ContainerMaterial(   "blackbronze",  "nuggetBlackBronze");
+	public static ContainerMaterial blacksteel  = new ContainerMaterial(   "blacksteel",  "nuggetBlackSteel");
+	public static ContainerMaterial bluesteel  = new ContainerMaterial(   "bluesteel",  "nuggetBlueSteel");
+	public static ContainerMaterial brass  = new ContainerMaterial(   "brass",  "nuggetBrass");
+	public static ContainerMaterial bronze  = new ContainerMaterial(   "bronze",  "nuggetBronze");
+	public static ContainerMaterial lead  = new ContainerMaterial(   "lead",  "nuggetLead");
+	public static ContainerMaterial nickel  = new ContainerMaterial(   "nickel",  "nuggetNickel");
+	public static ContainerMaterial pigiron  = new ContainerMaterial(   "pigiron",  "nuggetPigIron");
+	public static ContainerMaterial redsteel  = new ContainerMaterial(   "redsteel",  "nuggetRedSteel");
+	public static ContainerMaterial rosegold  = new ContainerMaterial(   "rosegold",  "nuggetRoseGold");
+	public static ContainerMaterial platinum  = new ContainerMaterial(   "platinum",  "nuggetPlatinum");
+	public static ContainerMaterial sterlingsilver  = new ContainerMaterial(   "sterlingsilver",  "nuggetSterlingSilver");
 
 
 
@@ -67,42 +67,40 @@ public class ContainerMaterial {
 	
 	public final String name;
 	
-	private final Object sheet;
+	private final Object nugget;
 
-	private ContainerMaterial(String name, Object sheet) {
+	private ContainerMaterial(String name, Object nugget) {
 		this.name = name;
-		this.sheet = sheet;
+		this.nugget = nugget;
 		materialMap.put(name, this);
 		materials.add(this);
 	}
 	private ContainerMaterial(String name) { this(name, null); }
 	
-	private ContainerMaterial(int id, String name, Object sheet) {
-		this(name, sheet);
+	private ContainerMaterial(int id, String name, Object nugget) {
+		this(name, nugget);
 		materialMapOld.put(id, this);
 	}
 	
 	public ShapedOreRecipe getReinforcedChestRecipe(String middle, Block result) {
-		if (sheet == null) return null;
+		if (nugget == null) return null;
 		return new ShapedOreRecipe(setMaterial(new ItemStack(result)),
-				"oSo",
+				"o#o",
 				"#C#",
 				"oOo", 'C', middle,
 				       '#', "logWood",
-				       'o', "woodLumber",
-				       'S', sheet,
+				       'o', nugget,
 				       'O', "plateSteel");
 	}
 
 	public ShapedOreRecipe getReinforcedLockerRecipe(Block middle, Block result) {
-		if (sheet == null) return null;
+		if (nugget == null) return null;
 		return new ShapedOreRecipe(setMaterial(new ItemStack(result)),
-				"oSo",
+				"o#o",
 				"#C#",
 				"oOo", 'C', middle,
 				'#', "logWood",
-				'o', "woodLumber",
-				'S', sheet,
+				'o', nugget,
 				'O', "plateSteel");
 	}
 
