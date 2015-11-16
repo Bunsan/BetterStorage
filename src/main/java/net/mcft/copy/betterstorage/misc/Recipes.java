@@ -158,8 +158,8 @@ public final class Recipes {
 			GameRegistry.addRecipe(KeyRecipe.createKeyRecipe(
 					".o",
 					".o",
-					" o", 'o', ItemStack(TFCItems.goldIngot),
-					      '.', ItemStack(TFCItems.smallMetalChunk, 1, 8)));
+					" o", 'o', TFCItems.goldIngot,
+					      '.', TFCItems.smallMetalChunk, 1, 8));
 			// Key modify recipe
 			GameRegistry.addRecipe(KeyRecipe.createKeyRecipe(
 					"k", 'k', new ItemStack(BetterStorageItems.key)));
