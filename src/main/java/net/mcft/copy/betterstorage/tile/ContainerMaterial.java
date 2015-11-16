@@ -22,7 +22,7 @@ public class ContainerMaterial {
 	private static Map<Integer, ContainerMaterial> materialMapOld = new HashMap<Integer, ContainerMaterial>();
 	private static List<ContainerMaterial> materials = new ArrayList<ContainerMaterial>();
 	
-	// Vanilla materials
+	//  Container materials
 
 	public static ContainerMaterial diamond = new ContainerMaterial(2, "diamond", "craftingBlueGem");
 	public static ContainerMaterial emerald = new ContainerMaterial(3, "emerald", "craftingGreenGem");

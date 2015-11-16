@@ -61,7 +61,7 @@ public final class Recipes {
 					"o/o",
 					"/s/",
 					"o/o", 'o', "plankWood",
-					       's', "itemSaw",
+					       's', "craftingToolMediumSaw",
 					       '/', "stickWood"));
 		
 		// Reinforced chest recipes
@@ -77,14 +77,14 @@ public final class Recipes {
 					"ooo",
 					"os|",
 					"ooo", 'o', "plankWood",
-					       's', "itemSaw",
+					       's', "craftingToolMediumSaw",
 					       '|', Blocks.trapdoor));
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BetterStorageTiles.locker),
 					"ooo",
 					"|so",
 					"ooo", 'o', "plankWood",
-					's', "itemSaw",
-					'|', Blocks.trapdoor));
+					       's', "craftingToolMediumSaw",
+					       '|', Blocks.trapdoor));
 			
 			// Reinforced locker recipes
 			if (BetterStorageTiles.reinforcedLocker != null)
@@ -100,8 +100,8 @@ public final class Recipes {
 					" i ",
 					"/i/",
 					" s ", 's', new ItemStack(Blocks.stone_slab, 1, 0),
-					'i', "ingotIron",
-					'/', "stickWood"));
+					       'i', "ingotIron",
+					       '/', "stickWood"));
 		
 		// Backpack recipe
 		if (BetterStorageTiles.backpack != null)
@@ -109,8 +109,8 @@ public final class Recipes {
 					"#i#",
 					"#O#",
 					"###", '#', "materialLeather",
-					'O', "materialCloth",
-					'i', "ingotSteel"));
+					       'O', "materialCloth",
+					       'i', "ingotSteel"));
 		
 		// Cardboard box recipe
 		if ((BetterStorageTiles.cardboardBox != null) &&
