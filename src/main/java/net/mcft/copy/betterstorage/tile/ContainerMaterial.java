@@ -23,12 +23,11 @@ public class ContainerMaterial {
 	private static List<ContainerMaterial> materials = new ArrayList<ContainerMaterial>();
 	
 	// Vanilla materials
-	public static ContainerMaterial iron    = new ContainerMaterial(0, "iron",    "plateIron");
-	public static ContainerMaterial gold    = new ContainerMaterial(1, "gold",    "plateGold");
 	public static ContainerMaterial diamond = new ContainerMaterial(2, "diamond", "gemDiamond");
 	public static ContainerMaterial emerald = new ContainerMaterial(3, "emerald", "gemEmerald");
-	
-	// Mod materials
+	public static ContainerMaterial ruby = new ContainerMaterial(3, "ruby", "gemRuby");
+	public static ContainerMaterial iron    = new ContainerMaterial(0, "iron",    "plateIron");
+	public static ContainerMaterial gold    = new ContainerMaterial(1, "gold",    "plateGold");
 	public static ContainerMaterial copper = new ContainerMaterial(5, "copper", "plateCopper");
 	public static ContainerMaterial tin    = new ContainerMaterial(6, "tin",    "plateTin");
 	public static ContainerMaterial silver = new ContainerMaterial(7, "silver", "plateSilver");
