@@ -1,17 +1,17 @@
 package net.mcft.copy.betterstorage.container;
 
-import com.bioxx.tfc.Items.ItemBlocks.ItemAnvil;
-import com.bioxx.tfc.Items.ItemBlocks.ItemAnvil1;
-import com.bioxx.tfc.Items.ItemBlocks.ItemAnvil2;
-import com.bioxx.tfc.Items.ItemBlocks.ItemBarrels;
-import com.bioxx.tfc.Items.ItemBlocks.ItemLargeVessel;
-import com.bioxx.tfc.api.TFCItems;
+import com.bioxx.tfc.Items.ItemBlocks.*;
+import com.bioxx.tfc.Items.Tools.ItemWeapon;
+import com.bioxx.tfc.api.Enums.EnumSize;
+import com.bioxx.tfc.api.Interfaces.ISize;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemTool;
 
 public class SlotBetterStorage extends Slot {
 
@@ -39,7 +39,13 @@ public class SlotBetterStorage extends Slot {
 			if (container.inInventory(slotNumber))
 			{
 				Item item = stack.getItem();
-				if (item instanceof ItemBarrels || item instanceof ItemLargeVessel || item instanceof ItemAnvil || item instanceof ItemAnvil1 || item instanceof ItemAnvil2) 
+				if (item instanceof ItemBarrels || item instanceof ItemLargeVessel || item instanceof ItemAnvil || item instanceof ItemCrucible)
+				{
+					return false;
+				}
+				if ((item instanceof ItemTool || item instanceof ItemWeapon ||
+						item instanceof ItemHoe) && item instanceof ISize &&
+					((ISize) item).getSize(stack).stackSize < EnumSize.SMALL.stackSize)
 				{
 					return false;
 				}
