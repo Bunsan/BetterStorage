@@ -19,6 +19,8 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import com.bioxx.tfc.api.TFCItems;
+
 
 public class ItemLock extends ItemBetterStorage implements ILock {
 	
@@ -40,7 +42,7 @@ public class ItemLock extends ItemBetterStorage implements ILock {
 	public boolean isRepairable() { return true; }
 	@Override
 	public boolean getIsRepairable(ItemStack stack, ItemStack material) {
-		return (material.getItem() == Items.gold_ingot);
+		return (material.getItem() == TFCItems.goldIngot);
 	}
 	
 	@Override

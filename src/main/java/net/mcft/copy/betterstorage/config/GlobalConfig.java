@@ -92,8 +92,8 @@ public class GlobalConfig extends Config {
 		new BooleanSetting(this, reinforcedChestEnabled, true, "tile.betterstorage.reinforcedChest.name").setHasComment(false).setRequiresMcRestart(true);
 		new BooleanSetting(this, lockerEnabled, true, "tile.betterstorage.locker.name").setHasComment(false).setRequiresMcRestart(true);
 		new BooleanSetting(this, armorStandEnabled, true, "tile.betterstorage.armorStand.name").setHasComment(false).setRequiresMcRestart(true);
-		new BooleanSetting(this, backpackEnabled, true, "tile.betterstorage.backpack.name").setHasComment(false).setRequiresMcRestart(true);
-		new BooleanSetting(this, enderBackpackEnabled, true, "tile.betterstorage.enderBackpack.name").setHasComment(false).setRequiresMcRestart(true);
+		new BooleanSetting(this, backpackEnabled, false, "tile.betterstorage.backpack.name").setHasComment(false).setRequiresMcRestart(true);
+		new BooleanSetting(this, enderBackpackEnabled, false, "tile.betterstorage.enderBackpack.name").setHasComment(false).setRequiresMcRestart(true);
 		new BooleanSetting(this, cardboardBoxEnabled, true, "tile.betterstorage.cardboardBox.name").setHasComment(false).setRequiresMcRestart(true);
 		new BooleanSetting(this, reinforcedLockerEnabled, true, "tile.betterstorage.reinforcedLocker.name").setHasComment(false).setRequiresMcRestart(true);
 		new BooleanSetting(this, craftingStationEnabled, true, "tile.betterstorage.craftingStation.name").setHasComment(false).setRequiresMcRestart(true);
@@ -107,19 +107,19 @@ public class GlobalConfig extends Config {
 		new BooleanSetting(this, keyringEnabled, true, "item.betterstorage.keyring.name").setHasComment(false).setRequiresMcRestart(true);
 		new BooleanSetting(this, cardboardSheetEnabled, true, "item.betterstorage.cardboardSheet.name").setHasComment(false).setRequiresMcRestart(true);
 		new BooleanSetting(this, masterKeyEnabled, true, "item.betterstorage.masterKey.name").setHasComment(false).setRequiresMcRestart(true);
-		new BooleanSetting(this, drinkingHelmetEnabled, true, "item.betterstorage.drinkingHelmet.name").setHasComment(false).setRequiresMcRestart(true);
-		new BooleanSetting(this, slimeBucketEnabled, true, "item.betterstorage.bucketSlime.name").setHasComment(false).setRequiresMcRestart(true);
+		new BooleanSetting(this, drinkingHelmetEnabled, false, "item.betterstorage.drinkingHelmet.name").setHasComment(false).setRequiresMcRestart(true);
+		new BooleanSetting(this, slimeBucketEnabled, false, "item.betterstorage.bucketSlime.name").setHasComment(false).setRequiresMcRestart(true);
 		
 		// Cardboard items
-		new BooleanSetting(this, cardboardHelmetEnabled, true, "item.betterstorage.cardboardHelmet.name").setHasComment(false).setRequiresMcRestart(true);
-		new BooleanSetting(this, cardboardChestplateEnabled, true, "item.betterstorage.cardboardChestplate.name").setHasComment(false).setRequiresMcRestart(true);
-		new BooleanSetting(this, cardboardLeggingsEnabled, true, "item.betterstorage.cardboardLeggings.name").setHasComment(false).setRequiresMcRestart(true);
-		new BooleanSetting(this, cardboardBootsEnabled, true, "item.betterstorage.cardboardBoots.name").setHasComment(false).setRequiresMcRestart(true);
-		new BooleanSetting(this, cardboardSwordEnabled, true, "item.betterstorage.cardboardSword.name").setHasComment(false).setRequiresMcRestart(true);
-		new BooleanSetting(this, cardboardPickaxeEnabled, true, "item.betterstorage.cardboardPickaxe.name").setHasComment(false).setRequiresMcRestart(true);
-		new BooleanSetting(this, cardboardShovelEnabled, true, "item.betterstorage.cardboardShovel.name").setHasComment(false).setRequiresMcRestart(true);
-		new BooleanSetting(this, cardboardAxeEnabled, true, "item.betterstorage.cardboardAxe.name").setHasComment(false).setRequiresMcRestart(true);
-		new BooleanSetting(this, cardboardHoeEnabled, true, "item.betterstorage.cardboardHoe.name").setHasComment(false).setRequiresMcRestart(true);
+		new BooleanSetting(this, cardboardHelmetEnabled, false, "item.betterstorage.cardboardHelmet.name").setHasComment(false).setRequiresMcRestart(true);
+		new BooleanSetting(this, cardboardChestplateEnabled, false, "item.betterstorage.cardboardChestplate.name").setHasComment(false).setRequiresMcRestart(true);
+		new BooleanSetting(this, cardboardLeggingsEnabled, false, "item.betterstorage.cardboardLeggings.name").setHasComment(false).setRequiresMcRestart(true);
+		new BooleanSetting(this, cardboardBootsEnabled, false, "item.betterstorage.cardboardBoots.name").setHasComment(false).setRequiresMcRestart(true);
+		new BooleanSetting(this, cardboardSwordEnabled, false, "item.betterstorage.cardboardSword.name").setHasComment(false).setRequiresMcRestart(true);
+		new BooleanSetting(this, cardboardPickaxeEnabled, false, "item.betterstorage.cardboardPickaxe.name").setHasComment(false).setRequiresMcRestart(true);
+		new BooleanSetting(this, cardboardShovelEnabled, false, "item.betterstorage.cardboardShovel.name").setHasComment(false).setRequiresMcRestart(true);
+		new BooleanSetting(this, cardboardAxeEnabled, false, "item.betterstorage.cardboardAxe.name").setHasComment(false).setRequiresMcRestart(true);
+		new BooleanSetting(this, cardboardHoeEnabled, false, "item.betterstorage.cardboardHoe.name").setHasComment(false).setRequiresMcRestart(true);
 		
 		// Enchantments
 		new EnchantmentIdSetting(this, enchUnlockingId, 170, "enchantment.betterstorage.key.unlocking");
@@ -131,7 +131,7 @@ public class GlobalConfig extends Config {
 		new EnchantmentIdSetting(this, enchTriggerId, 176, "enchantment.betterstorage.lock.trigger");
 		
 		// Reinforced chest settings
-		new IntegerSetting(this, reinforcedColumns, 13).setValidValues(9, 11, 13).setComment(
+		new IntegerSetting(this, reinforcedColumns, 9).setValidValues(9, 11, 13).setComment(
 				"Number of columns in reinforced chests and lockers. Valid values are 9, 11 and 13.");
 		
 		// Crate settings

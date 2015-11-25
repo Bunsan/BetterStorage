@@ -23,18 +23,33 @@ public class ContainerMaterial {
 	private static List<ContainerMaterial> materials = new ArrayList<ContainerMaterial>();
 	
 	// Vanilla materials
-	public static ContainerMaterial iron    = new ContainerMaterial(0, "iron",    Items.iron_ingot, Blocks.iron_block);
-	public static ContainerMaterial gold    = new ContainerMaterial(1, "gold",    Items.gold_ingot, Blocks.gold_block);
-	public static ContainerMaterial diamond = new ContainerMaterial(2, "diamond", Items.diamond,    Blocks.diamond_block);
-	public static ContainerMaterial emerald = new ContainerMaterial(3, "emerald", Items.emerald,    Blocks.emerald_block);
-	
-	// Mod materials
-	public static ContainerMaterial copper = new ContainerMaterial(5, "copper", "ingotCopper", "blockCopper");
-	public static ContainerMaterial tin    = new ContainerMaterial(6, "tin",    "ingotTin",    "blockTin");
-	public static ContainerMaterial silver = new ContainerMaterial(7, "silver", "ingotSilver", "blockSilver");
-	public static ContainerMaterial zinc   = new ContainerMaterial(8, "zinc",   "ingotZinc",   "blockZinc");
-	public static ContainerMaterial steel  = new ContainerMaterial(   "steel",  "ingotSteel",  "blockSteel");
-	
+	public static ContainerMaterial diamond = new ContainerMaterial(2, "diamond", "gemDiamond");
+	public static ContainerMaterial emerald = new ContainerMaterial(3, "emerald", "gemEmerald");
+	public static ContainerMaterial ruby = new ContainerMaterial(3, "ruby", "gemRuby");
+	public static ContainerMaterial iron    = new ContainerMaterial(0, "iron",    "plateIron");
+	public static ContainerMaterial gold    = new ContainerMaterial(1, "gold",    "plateGold");
+	public static ContainerMaterial copper = new ContainerMaterial(5, "copper", "plateCopper");
+	public static ContainerMaterial tin    = new ContainerMaterial(6, "tin",    "plateTin");
+	public static ContainerMaterial silver = new ContainerMaterial(7, "silver", "plateSilver");
+	public static ContainerMaterial zinc   = new ContainerMaterial(8, "zinc",   "plateZinc");
+	public static ContainerMaterial steel  = new ContainerMaterial(   "steel",  "plateSteel");
+	public static ContainerMaterial bismuth  = new ContainerMaterial(   "bismuth",  "plateBismuth");
+	public static ContainerMaterial bismuthbronze  = new ContainerMaterial(   "bismuthbronze",  "plateBismuthBronze");
+	public static ContainerMaterial blackbronze  = new ContainerMaterial(   "blackbronze",  "plateBlackBronze");
+	public static ContainerMaterial blacksteel  = new ContainerMaterial(   "blacksteel",  "plateBlackSteel");
+	public static ContainerMaterial bluesteel  = new ContainerMaterial(   "bluesteel",  "plateBlueSteel");
+	public static ContainerMaterial brass  = new ContainerMaterial(   "brass",  "plateBrass");
+	public static ContainerMaterial bronze  = new ContainerMaterial(   "bronze",  "plateBronze");
+	public static ContainerMaterial lead  = new ContainerMaterial(   "lead",  "plateLead");
+	public static ContainerMaterial nickel  = new ContainerMaterial(   "nickel",  "plateNickel");
+	public static ContainerMaterial pigiron  = new ContainerMaterial(   "pigiron",  "platePigIron");
+	public static ContainerMaterial redsteel  = new ContainerMaterial(   "redsteel",  "plateRedSteel");
+	public static ContainerMaterial rosegold  = new ContainerMaterial(   "rosegold",  "plateRoseGold");
+	public static ContainerMaterial platinum  = new ContainerMaterial(   "platinum",  "platePlatinum");
+	public static ContainerMaterial sterlingsilver  = new ContainerMaterial(   "sterlingsilver",  "plateSterlingSilver");
+
+
+
 	public static List<ContainerMaterial> getMaterials() { return materials; }
 	
 	public static ContainerMaterial get(String name) { return materialMap.get(name); }
@@ -51,34 +66,45 @@ public class ContainerMaterial {
 	
 	public final String name;
 	
-	private final Object ingot;
-	private final Object block;
-	
-	private ContainerMaterial(String name, Object ingot, Object block) {
+	private final Object sheet;
+
+	private ContainerMaterial(String name, Object sheet) {
 		this.name = name;
-		this.ingot = ingot;
-		this.block = block;
+		this.sheet = sheet;
 		materialMap.put(name, this);
 		materials.add(this);
 	}
-	private ContainerMaterial(String name) { this(name, null, null); }
+	private ContainerMaterial(String name) { this(name, null); }
 	
-	private ContainerMaterial(int id, String name, Object ingot, Object block) {
-		this(name, ingot, block);
+	private ContainerMaterial(int id, String name, Object sheet) {
+		this(name, sheet);
 		materialMapOld.put(id, this);
 	}
 	
-	public ShapedOreRecipe getReinforcedRecipe(Block middle, Block result) {
-		if ((ingot == null) || (block == null)) return null;
+	public ShapedOreRecipe getReinforcedChestRecipe(String middle, Block result) {
+		if (sheet == null) return null;
 		return new ShapedOreRecipe(setMaterial(new ItemStack(result)),
-				"o#o",
+				"oSo",
 				"#C#",
 				"oOo", 'C', middle,
 				       '#', "logWood",
-				       'o', ingot,
-				       'O', block);
+				       'o', "woodLumber",
+				       'S', sheet,
+				       'O', "plateSteel");
 	}
-	
+
+	public ShapedOreRecipe getReinforcedLockerRecipe(Block middle, Block result) {
+		if (sheet == null) return null;
+		return new ShapedOreRecipe(setMaterial(new ItemStack(result)),
+				"oSo",
+				"#C#",
+				"oOo", 'C', middle,
+				'#', "logWood",
+				'o', "woodLumber",
+				'S', sheet,
+				'O', "plateSteel");
+	}
+
 	public ResourceLocation getChestResource(boolean large) {
 		return new BetterStorageResource("textures/models/chest" + (large ? "_large/" : "/") + name + ".png");
 	}
