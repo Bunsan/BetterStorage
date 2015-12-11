@@ -1,5 +1,8 @@
 package net.mcft.copy.betterstorage;
 
+import net.mcft.copy.betterstorage.misc.handlers.CraftingHandler;
+import net.minecraftforge.common.MinecraftForge;
+
 import net.mcft.copy.betterstorage.addon.Addon;
 import net.mcft.copy.betterstorage.config.Config;
 import net.mcft.copy.betterstorage.config.GlobalConfig;
@@ -14,10 +17,14 @@ import net.mcft.copy.betterstorage.misc.DungeonLoot;
 import net.mcft.copy.betterstorage.misc.Recipes;
 import net.mcft.copy.betterstorage.network.ChannelHandler;
 import net.mcft.copy.betterstorage.proxy.CommonProxy;
+import net.mcft.copy.betterstorage.misc.handlers.ChunkEventHandler;
+import net.mcft.copy.betterstorage.misc.handlers.network.InitClientWorldPacket;
 import net.minecraft.creativetab.CreativeTabs;
 
 import org.apache.logging.log4j.Logger;
 
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -25,6 +32,8 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+
+import com.bioxx.tfc.TerraFirmaCraft;
 
 @Mod(modid = Constants.modId,
      name = Constants.modName,
@@ -74,10 +83,13 @@ public class BetterStorage {
 	
 	@EventHandler
 	public void load(FMLInitializationEvent event) {
-		
+		TerraFirmaCraft.PACKET_PIPELINE.registerPacket(InitClientWorldPacket.class);
+
 		Recipes.add();
 		proxy.initialize();
-		
+
+		// Register the Chunk Load/Save Handler
+		MinecraftForge.EVENT_BUS.register(new ChunkEventHandler());
 	}
 	
 	@EventHandler

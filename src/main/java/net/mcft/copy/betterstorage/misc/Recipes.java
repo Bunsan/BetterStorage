@@ -1,5 +1,11 @@
 package net.mcft.copy.betterstorage.misc;
 
+import com.bioxx.tfc.api.Crafting.AnvilManager;
+import com.bioxx.tfc.api.Crafting.AnvilRecipe;
+import com.bioxx.tfc.api.Crafting.AnvilReq;
+import com.bioxx.tfc.api.Crafting.PlanRecipe;
+import com.bioxx.tfc.api.Enums.RuleEnum;
+import net.mcft.copy.betterstorage.BetterStorage;
 import net.mcft.copy.betterstorage.addon.Addon;
 import net.mcft.copy.betterstorage.api.crafting.BetterStorageCrafting;
 import net.mcft.copy.betterstorage.content.BetterStorageItems;
@@ -18,14 +24,22 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.world.World;
 import net.minecraftforge.oredict.RecipeSorter;
 import net.minecraftforge.oredict.RecipeSorter.Category;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
 import com.bioxx.tfc.api.TFCItems;
 
+import java.util.Map;
+import java.util.Random;
+
 
 public final class Recipes {
+
+	private static final String RingPlan = "ring";
+	private static final String KeyPlan = "key";
+	//private static final String LockPlan = "lock";
 	
 	private Recipes() {  }
 	
@@ -36,7 +50,8 @@ public final class Recipes {
 		addTileRecipes();
 		addItemRecipes();
 		addCardboardRecipes();
-		
+	//	areAnvilRecipesRegistered();
+
 		GameRegistry.addRecipe(new DyeRecipe());
 		Addon.addRecipesAll();
 		
@@ -59,9 +74,8 @@ public final class Recipes {
 		if (BetterStorageTiles.crate != null)
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BetterStorageTiles.crate),
 					"o/o",
-					"/s/",
+					"/ /",
 					"o/o", 'o', "plankWood",
-					       's', "itemSaw",
 					       '/', "stickWood"));
 		
 		// Reinforced chest recipes
@@ -75,15 +89,13 @@ public final class Recipes {
 		if (BetterStorageTiles.locker != null) {
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BetterStorageTiles.locker),
 					"ooo",
-					"os|",
+					"o |",
 					"ooo", 'o', "plankWood",
-					       's', "itemSaw",
 					       '|', Blocks.trapdoor));
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BetterStorageTiles.locker),
 					"ooo",
-					"|so",
+					"| o",
 					"ooo", 'o', "plankWood",
-					's', "itemSaw",
 					'|', Blocks.trapdoor));
 			
 			// Reinforced locker recipes
@@ -99,7 +111,7 @@ public final class Recipes {
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BetterStorageTiles.armorStand),
 					" i ",
 					"/i/",
-					" s ", 's', new ItemStack(Blocks.stone_slab, 1, 0),
+					" s ", 's', "stoneSmooth",
 					'i', "ingotIron",
 					'/', "stickWood"));
 		
@@ -127,10 +139,10 @@ public final class Recipes {
 					"PTP",
 					"WCW", 'B', "plateSteel",
 					       '-', Blocks.light_weighted_pressure_plate,
-					       'P', "craftingPiston",
+					       'P', Blocks.piston,
 					       'T', "craftingTableWood",
 					       'W', "plankWood",
-					       'C', ((BetterStorageTiles.crate != null) ? BetterStorageTiles.crate : Blocks.chest)));
+					       'C', "chestWood"));
 		
 		// Present recipe
 		if ((BetterStorageTiles.present != null) &&
@@ -149,7 +161,7 @@ public final class Recipes {
 		}
 		
 	}
-	
+
 	private static void addItemRecipes() {
 		
 		if (BetterStorageItems.key != null) {
@@ -157,9 +169,10 @@ public final class Recipes {
 			// TODO: Add support for ore dictionary gold ingots / nuggets.
 			GameRegistry.addRecipe(KeyRecipe.createKeyRecipe(
 					".o",
-					".o",
-					" o", 'o', TFCItems.goldIngot,
-					      '.', Items.gold_nugget));
+					" o",
+					" r", 'o', TFCItems.goldIngot,
+					      '.', TFCItems.goldSheet,
+					      'r', BetterStorageItems.keyring));
 			// Key modify recipe
 			GameRegistry.addRecipe(KeyRecipe.createKeyRecipe(
 					"k", 'k', new ItemStack(BetterStorageItems.key)));
@@ -172,13 +185,13 @@ public final class Recipes {
 			// Lock color recipe
 			GameRegistry.addRecipe(LockColorRecipe.createLockColorRecipe());
 		}
-		
-		// Keyring recipe
-		if (BetterStorageItems.keyring != null)
-			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BetterStorageItems.keyring),
-					"...",
-					". .",
-					"...", '.', "nuggetGold"));
+
+		//Keyring recipe
+		//if (BetterStorageItems.keyring != null)
+		//	GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BetterStorageItems.keyring),
+		//			"...",
+		//			". .",
+		//			"...", '.', "nuggetGold"));
 
 		// Drinking helmet recipe
 		if (BetterStorageItems.drinkingHelmet != null)
@@ -278,6 +291,26 @@ public final class Recipes {
 				BetterStorageCrafting.addStationRecipe(new CardboardRepairRecipe());
 		}
 		
+	}
+	public static boolean areAnvilRecipesRegistered()
+	{
+		Map map = AnvilManager.getInstance().getPlans();
+
+		return map.containsKey(RingPlan);
+	}
+
+	public static void registerAnvilRecipes(World world) {
+		AnvilManager manager = AnvilManager.getInstance();
+		//We need to set the world ref so that all anvil recipes can generate correctly
+		AnvilManager.world = world;
+
+		manager.addPlan(RingPlan, new PlanRecipe(new RuleEnum[]{RuleEnum.PUNCHLAST, RuleEnum.HITSECONDFROMLAST, RuleEnum.PUNCHTHIRDFROMLAST}));
+		manager.addPlan(KeyPlan, new PlanRecipe(new RuleEnum[]{RuleEnum.HITLAST, RuleEnum.PUNCHNOTLAST, RuleEnum.BENDNOTLAST}));
+	//	manager.addPlan(LockPlan, new PlanRecipe(new RuleEnum[]{RuleEnum.BENDLAST, RuleEnum.SHRINKNOTLAST, RuleEnum.PUNCHNOTLAST}));
+
+		manager.addRecipe(new AnvilRecipe(new ItemStack(TFCItems.goldSheet), null, "ring", false, AnvilReq.BRONZE, new ItemStack(BetterStorageItems.keyring, 4)));
+		manager.addRecipe(new AnvilRecipe(new ItemStack(TFCItems.goldSheet), null, "key", false, AnvilReq.BRONZE, new ItemStack(BetterStorageItems.key)));
+	//	manager.addRecipe(new AnvilRecipe(new ItemStack(TFCItems.goldSheet2x), new ItemStack(TFCItems.wroughtIronIngot), "lock", false, AnvilReq.BRONZE, new ItemStack(BetterStorageItems.lock)));
 	}
 	
 }

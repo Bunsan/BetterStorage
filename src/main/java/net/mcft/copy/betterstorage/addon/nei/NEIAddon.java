@@ -48,14 +48,16 @@ public class NEIAddon extends Addon {
 		if (BetterStorageItems.key != null) {
 			GameRegistry.addRecipe(new FakeShapedRecipe(new ItemStack(BetterStorageItems.key),
 					".o",
-					".o",
-					" o", 'o', TFCItems.goldIngot,
-					      '.', Items.gold_nugget));
+					" o",
+					" r", 'o', TFCItems.goldIngot,
+					      '.', TFCItems.goldSheet,
+					      'r', BetterStorageItems.keyring));
 			GameRegistry.addRecipe(new FakeShapedRecipe(new ItemStack(BetterStorageItems.key),
 					".o ",
-					".o ",
-					" ok", 'o', TFCItems.goldIngot,
-					       '.', Items.gold_nugget,
+					" o ",
+					" rk", 'o', TFCItems.goldIngot,
+					       '.', TFCItems.goldSheet,
+					       'r', BetterStorageItems.keyring,
 					       'k', BetterStorageItems.key));
 		}
 	}

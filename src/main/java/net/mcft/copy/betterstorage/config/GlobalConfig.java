@@ -91,21 +91,21 @@ public class GlobalConfig extends Config {
 		new BooleanSetting(this, crateEnabled, true, "tile.betterstorage.crate.name").setHasComment(false).setRequiresMcRestart(true);
 		new BooleanSetting(this, reinforcedChestEnabled, true, "tile.betterstorage.reinforcedChest.name").setHasComment(false).setRequiresMcRestart(true);
 		new BooleanSetting(this, lockerEnabled, true, "tile.betterstorage.locker.name").setHasComment(false).setRequiresMcRestart(true);
-		new BooleanSetting(this, armorStandEnabled, true, "tile.betterstorage.armorStand.name").setHasComment(false).setRequiresMcRestart(true);
+		new BooleanSetting(this, armorStandEnabled, false, "tile.betterstorage.armorStand.name").setHasComment(false).setRequiresMcRestart(true);
 		new BooleanSetting(this, backpackEnabled, false, "tile.betterstorage.backpack.name").setHasComment(false).setRequiresMcRestart(true);
 		new BooleanSetting(this, enderBackpackEnabled, false, "tile.betterstorage.enderBackpack.name").setHasComment(false).setRequiresMcRestart(true);
-		new BooleanSetting(this, cardboardBoxEnabled, true, "tile.betterstorage.cardboardBox.name").setHasComment(false).setRequiresMcRestart(true);
+		new BooleanSetting(this, cardboardBoxEnabled, false, "tile.betterstorage.cardboardBox.name").setHasComment(false).setRequiresMcRestart(true);
 		new BooleanSetting(this, reinforcedLockerEnabled, true, "tile.betterstorage.reinforcedLocker.name").setHasComment(false).setRequiresMcRestart(true);
 		new BooleanSetting(this, craftingStationEnabled, true, "tile.betterstorage.craftingStation.name").setHasComment(false).setRequiresMcRestart(true);
 		new BooleanSetting(this, flintBlockEnabled, true, "tile.betterstorage.flintBlock.name").setHasComment(false).setRequiresMcRestart(true);
 		new BooleanSetting(this, lockableDoorEnabled, true, "tile.betterstorage.lockableDoor.name").setHasComment(false).setRequiresMcRestart(true);
-		new BooleanSetting(this, presentEnabled, true, "tile.betterstorage.present.name").setHasComment(false).setRequiresMcRestart(true);
+		new BooleanSetting(this, presentEnabled, false, "tile.betterstorage.present.name").setHasComment(false).setRequiresMcRestart(true);
 		
 		// Items
 		new BooleanSetting(this, keyEnabled, true, "item.betterstorage.key.name").setHasComment(false).setRequiresMcRestart(true);
 		new BooleanSetting(this, lockEnabled, true, "item.betterstorage.lock.name").setHasComment(false).setRequiresMcRestart(true);
 		new BooleanSetting(this, keyringEnabled, true, "item.betterstorage.keyring.name").setHasComment(false).setRequiresMcRestart(true);
-		new BooleanSetting(this, cardboardSheetEnabled, true, "item.betterstorage.cardboardSheet.name").setHasComment(false).setRequiresMcRestart(true);
+		new BooleanSetting(this, cardboardSheetEnabled, false, "item.betterstorage.cardboardSheet.name").setHasComment(false).setRequiresMcRestart(true);
 		new BooleanSetting(this, masterKeyEnabled, true, "item.betterstorage.masterKey.name").setHasComment(false).setRequiresMcRestart(true);
 		new BooleanSetting(this, drinkingHelmetEnabled, false, "item.betterstorage.drinkingHelmet.name").setHasComment(false).setRequiresMcRestart(true);
 		new BooleanSetting(this, slimeBucketEnabled, false, "item.betterstorage.bucketSlime.name").setHasComment(false).setRequiresMcRestart(true);
