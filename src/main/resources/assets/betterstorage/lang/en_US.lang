@@ -167,3 +167,6 @@ config.betterstorage.general.enableWarningMessages=Debug Messages
 config.betterstorage.general.enableWarningMessages.tooltip=If disabled, prevents certain warning messages from being logged to the console.
 config.betterstorage.general.enableChristmasEvent=Christmas Event
 config.betterstorage.general.enableChristmasEvent.tooltip=If disabled, prevents the christmas event from happening. You monster.
+
+#Plans
+gui.plans.ring=Ring

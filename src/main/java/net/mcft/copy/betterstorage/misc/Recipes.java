@@ -38,7 +38,7 @@ import java.util.Random;
 public final class Recipes {
 
 	private static final String RingPlan = "ring";
-	private static final String KeyPlan = "key";
+	//private static final String KeyPlan = "key";
 	//private static final String LockPlan = "lock";
 	
 	private Recipes() {  }
@@ -309,7 +309,7 @@ public final class Recipes {
 	//	manager.addPlan(LockPlan, new PlanRecipe(new RuleEnum[]{RuleEnum.BENDLAST, RuleEnum.SHRINKNOTLAST, RuleEnum.PUNCHNOTLAST}));
 
 		manager.addRecipe(new AnvilRecipe(new ItemStack(TFCItems.goldSheet), null, "ring", false, AnvilReq.BRONZE, new ItemStack(BetterStorageItems.keyring, 4)));
-		manager.addRecipe(new AnvilRecipe(new ItemStack(TFCItems.goldSheet), null, "key", false, AnvilReq.BRONZE, new ItemStack(BetterStorageItems.key)));
+	//	manager.addRecipe(new AnvilRecipe(new ItemStack(TFCItems.goldSheet), null, "key", false, AnvilReq.BRONZE, new ItemStack(BetterStorageItems.key)));
 	//	manager.addRecipe(new AnvilRecipe(new ItemStack(TFCItems.goldSheet2x), new ItemStack(TFCItems.wroughtIronIngot), "lock", false, AnvilReq.BRONZE, new ItemStack(BetterStorageItems.lock)));
 	}
 	
