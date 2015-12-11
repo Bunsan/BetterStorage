@@ -305,7 +305,7 @@ public final class Recipes {
 		AnvilManager.world = world;
 
 		manager.addPlan(RingPlan, new PlanRecipe(new RuleEnum[]{RuleEnum.PUNCHLAST, RuleEnum.HITSECONDFROMLAST, RuleEnum.PUNCHTHIRDFROMLAST}));
-		manager.addPlan(KeyPlan, new PlanRecipe(new RuleEnum[]{RuleEnum.HITLAST, RuleEnum.PUNCHNOTLAST, RuleEnum.BENDNOTLAST}));
+	//	manager.addPlan(KeyPlan, new PlanRecipe(new RuleEnum[]{RuleEnum.HITLAST, RuleEnum.PUNCHNOTLAST, RuleEnum.BENDNOTLAST}));
 	//	manager.addPlan(LockPlan, new PlanRecipe(new RuleEnum[]{RuleEnum.BENDLAST, RuleEnum.SHRINKNOTLAST, RuleEnum.PUNCHNOTLAST}));
 
 		manager.addRecipe(new AnvilRecipe(new ItemStack(TFCItems.goldSheet), null, "ring", false, AnvilReq.BRONZE, new ItemStack(BetterStorageItems.keyring, 4)));
