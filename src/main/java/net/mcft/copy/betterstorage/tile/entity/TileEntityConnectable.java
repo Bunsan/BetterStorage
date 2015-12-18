@@ -21,8 +21,7 @@ public abstract class TileEntityConnectable extends TileEntityContainer implemen
 	
 	private ForgeDirection orientation = ForgeDirection.UNKNOWN;
 	private ForgeDirection connected = ForgeDirection.UNKNOWN;
-	private int ticksSinceSync;
-	
+
 	public ForgeDirection getOrientation() { return orientation; }
 	public void setOrientation(ForgeDirection orientation) { this.orientation = orientation; }
 	
@@ -155,11 +154,7 @@ public abstract class TileEntityConnectable extends TileEntityContainer implemen
 	@Override
 	public void updateEntity() {
 		super.updateEntity();
-		this.ticksSinceSync++;
-		if ((this.ticksSinceSync + this.xCoord + this.yCoord + this.zCoord) % 200 == 0)
-		{
-			TFC_Core.handleItemTicking(this, this.worldObj, xCoord, yCoord, zCoord);	
-		}
+		TFC_Core.handleItemTicking(this, this.worldObj, xCoord, yCoord, zCoord);
 		
 		double x = xCoord + 0.5;
 		double y = yCoord + 0.5;
