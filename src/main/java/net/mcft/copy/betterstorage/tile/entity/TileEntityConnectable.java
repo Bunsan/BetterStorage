@@ -159,7 +159,7 @@ public abstract class TileEntityConnectable extends TileEntityContainer implemen
 		
 		if ((this.ticksSinceSync) % 20 == 0)
 		{
-			TFC_Core.handleItemTicking(this, this.worldObj, xCoord, yCoord, zCoord, 20);	
+			TFC_Core.handleItemTicking(this, this.worldObj, xCoord, yCoord, zCoord);
 		}
 		
 		double x = xCoord + 0.5;
