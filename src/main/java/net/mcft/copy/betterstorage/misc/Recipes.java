@@ -1,5 +1,11 @@
 package net.mcft.copy.betterstorage.misc;
 
+import com.bioxx.tfc.api.Crafting.AnvilManager;
+import com.bioxx.tfc.api.Crafting.AnvilRecipe;
+import com.bioxx.tfc.api.Crafting.AnvilReq;
+import com.bioxx.tfc.api.Crafting.PlanRecipe;
+import com.bioxx.tfc.api.Enums.RuleEnum;
+import net.mcft.copy.betterstorage.BetterStorage;
 import net.mcft.copy.betterstorage.addon.Addon;
 import net.mcft.copy.betterstorage.api.crafting.BetterStorageCrafting;
 import net.mcft.copy.betterstorage.content.BetterStorageItems;
@@ -18,17 +24,26 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.world.World;
 import net.minecraftforge.oredict.RecipeSorter;
 import net.minecraftforge.oredict.RecipeSorter.Category;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
 import com.bioxx.tfc.api.TFCItems;
 
+import java.util.Map;
+import java.util.Random;
+
 
 public final class Recipes {
 	
 	private Recipes() {  }
-	
+
+	private static final String RingPlan = "ring";
+	//private static final String KeyPlan = "key";
+	//private static final String LockPlan = "lock";
+
+
 	public static void add() {
 		
 		registerRecipeSorter();
@@ -279,5 +294,25 @@ public final class Recipes {
 		}
 		
 	}
-	
+	public static boolean areAnvilRecipesRegistered()
+	{
+		Map map = AnvilManager.getInstance().getPlans();
+
+		return map.containsKey(RingPlan);
+	}
+
+	public static void registerAnvilRecipes(World world) {
+		AnvilManager manager = AnvilManager.getInstance();
+		//We need to set the world ref so that all anvil recipes can generate correctly
+		AnvilManager.world = world;
+
+		manager.addPlan(RingPlan, new PlanRecipe(new RuleEnum[]{RuleEnum.PUNCHLAST, RuleEnum.HITSECONDFROMLAST, RuleEnum.PUNCHTHIRDFROMLAST}));
+		//manager.addPlan(KeyPlan, new PlanRecipe(new RuleEnum[]{RuleEnum.HITLAST, RuleEnum.PUNCHNOTLAST, RuleEnum.BENDNOTLAST}));
+		//	manager.addPlan(LockPlan, new PlanRecipe(new RuleEnum[]{RuleEnum.BENDLAST, RuleEnum.SHRINKNOTLAST, RuleEnum.PUNCHNOTLAST}));
+
+		manager.addRecipe(new AnvilRecipe(new ItemStack(TFCItems.goldSheet), null, "ring", false, AnvilReq.BRONZE, new ItemStack(BetterStorageItems.keyring, 4)));
+		manager.addRecipe(new AnvilRecipe(new ItemStack(TFCItems.goldSheet), null, "key", false, AnvilReq.BRONZE, new ItemStack(BetterStorageItems.key)));
+		//	manager.addRecipe(new AnvilRecipe(new ItemStack(TFCItems.goldSheet2x), new ItemStack(TFCItems.wroughtIronIngot), "lock", false, AnvilReq.BRONZE, new ItemStack(BetterStorageItems.lock)));
+	}
+
 }
