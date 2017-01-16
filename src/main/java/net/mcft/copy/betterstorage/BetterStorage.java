@@ -1,6 +1,5 @@
 package net.mcft.copy.betterstorage;
 
-import net.mcft.copy.betterstorage.misc.handlers.CraftingHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.mcft.copy.betterstorage.addon.Addon;
 import net.mcft.copy.betterstorage.config.Config;
@@ -20,8 +19,6 @@ import net.mcft.copy.betterstorage.misc.handlers.ChunkEventHandler;
 import net.mcft.copy.betterstorage.misc.handlers.network.InitClientWorldPacket;
 import net.minecraft.creativetab.CreativeTabs;
 import org.apache.logging.log4j.Logger;
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;

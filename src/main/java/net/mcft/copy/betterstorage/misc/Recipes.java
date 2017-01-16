@@ -32,7 +32,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import com.bioxx.tfc.api.TFCItems;
 
 import java.util.Map;
-import java.util.Random;
 
 
 public final class Recipes {
@@ -173,8 +172,8 @@ public final class Recipes {
 			GameRegistry.addRecipe(KeyRecipe.createKeyRecipe(
 					".o",
 					".o",
-					" o", 'o', TFCItems.goldIngot,
-					      '.', TFCItems.smallMetalChunk, 1, 8));
+					" o", 'o', (new ItemStack(TFCItems.goldIngot)),
+					      '.', (new ItemStack(TFCItems.smallMetalChunk, 1, 2))));
 			// Key modify recipe
 			GameRegistry.addRecipe(KeyRecipe.createKeyRecipe(
 					"k", 'k', new ItemStack(BetterStorageItems.key)));
@@ -189,11 +188,11 @@ public final class Recipes {
 		}
 		
 		// Keyring recipe
-		if (BetterStorageItems.keyring != null)
-			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BetterStorageItems.keyring),
-					"...",
-					". .",
-					"...", '.', "nuggetGold"));
+		//if (BetterStorageItems.keyring != null)
+		//	GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BetterStorageItems.keyring),
+		//			"...",
+		//			". .",
+		//			"...", '.', "nuggetGold"));
 
 		// Drinking helmet recipe
 		if (BetterStorageItems.drinkingHelmet != null)
@@ -311,7 +310,7 @@ public final class Recipes {
 		//	manager.addPlan(LockPlan, new PlanRecipe(new RuleEnum[]{RuleEnum.BENDLAST, RuleEnum.SHRINKNOTLAST, RuleEnum.PUNCHNOTLAST}));
 
 		manager.addRecipe(new AnvilRecipe(new ItemStack(TFCItems.goldSheet), null, "ring", false, AnvilReq.BRONZE, new ItemStack(BetterStorageItems.keyring, 4)));
-		manager.addRecipe(new AnvilRecipe(new ItemStack(TFCItems.goldSheet), null, "key", false, AnvilReq.BRONZE, new ItemStack(BetterStorageItems.key)));
+		//manager.addRecipe(new AnvilRecipe(new ItemStack(TFCItems.goldSheet), null, "key", false, AnvilReq.BRONZE, new ItemStack(BetterStorageItems.key)));
 		//	manager.addRecipe(new AnvilRecipe(new ItemStack(TFCItems.goldSheet2x), new ItemStack(TFCItems.wroughtIronIngot), "lock", false, AnvilReq.BRONZE, new ItemStack(BetterStorageItems.lock)));
 	}
 
